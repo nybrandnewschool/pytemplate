@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "pytemplate"
+version = "0.1.1"
+description = "Template Python project repository. Includes automated testing, code-quality checks, and automated deployment to ShotGrid."
+authors = ["Dan Bradham <dan@brandnewschool.com>"]
+repository = "https://github.com/nybrandnewschool/pytemplate"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+isort = "^5.10.1"
+black = "^22.3.0"
+pytest = "^7.1.1"
+typer = "^0.4.1"
+coverage = {extras = ["toml"], version = "^6.3.2"}
+pytest-cov = "^3.0.0"
+toml = "^0.10.2"
+
+[tool.isort]
+profile = "black"
+known_first_party = "pytemplate"
+known_third_party = "libsass,pytest,setuptools"
+skip = "venv,cpenv/vendor,docs,.venv"
+multi_line_output = "3"
+include_trailing_comma = "True"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
