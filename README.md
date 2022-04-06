@@ -1,7 +1,7 @@
 # BNS Python template project
 A template python project that doubles as a cpenv module. Includes automated testing, code-quality checks, and automated deployment to our ShotGrid site.
 
-The python package is managed using the `poetry` cli tool. When developing locally you can use `poetry` to install and manage dependencies for your project.
+The python package is managed using `poetry` tool. When developing locally you can use `poetry` to add and manage dependencies for your project.
 
 # Continuous Integration
 
