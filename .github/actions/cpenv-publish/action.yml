@@ -1,0 +1,52 @@
+name: 'cpenv Publish Module'
+author: 'Dan Bradham'
+description: 'An action to publish your cpenv modules.'
+
+branding:
+  icon: box
+  color: gray-dark
+
+inputs:
+  module_root:
+    description: 'Root folder containing a cpenv module.yml file in your git repo folder. Defaults to the root directory of your git repo, "."'
+    required: true
+    default: '.'
+  repo_name:
+    description: 'Name of your cpenv repo.'
+    required: true
+  repo_type:
+    description: 'A cpenv repo type like, "shotgun" or "local".'
+    required: true
+  repo_path:
+    description: 'Path to local cpenv repo. Required when repo_type is "local".'
+    required: false
+  repo_shotgrid_base_url:
+    description: 'The URL of the ShotGrid site you use as a cpenv repo. Store as a github secret. Required when repo_type is "shotgun".'
+    required: false
+  repo_shotgrid_script_name:
+    description: 'Name of ShotGrid api script. Store as a github secret. Required when repo_type is "shotgun".'
+    required: false
+  repo_shotgrid_api_key:
+    description: 'ShotGrid api script key. Store as github secret. Required when repo_type is "shotgun".'
+    required: false
+  repo_shotgrid_module_entity:
+    description: 'Name of ShotGrid Module entity like, "CustomNonProjectEntity##". Required when repo_type is "shotgun".'
+    required: false
+  repo_overwrite:
+    description: 'Overwrite an existing module in the repo with the same version number.'
+    required: false
+    default: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install cpenv
+      run: pipx install cpenv
+    - name: Setup Local Repo
+      if: ${{ inputs.repo_type == 'local' }}
+      run: cpenv repo --type="local" ${{ inputs.repo_name }} --path="${{ inputs.repo_path }}"
+    - name: Setup ShotGrid Repo
+      if: ${{ inputs.repo_type == 'shotgun' }}
+      run: cpenv repo --type="shotgun" ${{ inputs.repo_name }} --base_url="${{ inputs.repo_shotgrid_base_url }}" --script_name="${{ inputs.repo_shotgrid_script_name }}" --api_key="${{ inputs.repo_shotgrid_api_key }}" --module_entity="${{ inputs.repo_shotgrid_module_entity }}"
+    - name: Publish module to "${{ inputs.repo_name }}"
+      run: printf 'y' | cpenv publish ${{ inputs.module_root }} --to_repo="${{ inputs.repo_name }}"${{ fromJson(inputs.repo_overwrite) && ' --overwrite' || '' }}
