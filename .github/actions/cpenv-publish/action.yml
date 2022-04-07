@@ -43,6 +43,9 @@ runs:
     - name: Install cpenv
       run: pipx install cpenv
       shell: bash
+    - name: Open CPENV_HOME Permissions
+      run: sudo mkdir /usr/local/share/cpenv && sudo chmod a+rwx /usr/local/share/cpenv
+      shell: bash
     - name: Setup Local Repo
       if: ${{ inputs.repo_type == 'local' }}
       run: cpenv repo add --type="local" ${{ inputs.repo_name }} --path="${{ inputs.repo_path }}"
