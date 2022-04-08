@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytemplate"
-version = "0.1.1"
+version = "0.1.0"
 description = "Template Python project repository. Includes automated testing, code-quality checks, and automated deployment to ShotGrid."
 authors = ["Dan Bradham <dan@brandnewschool.com>"]
 repository = "https://github.com/nybrandnewschool/pytemplate"
