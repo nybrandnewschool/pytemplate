@@ -1,8 +1,16 @@
-# pytemplate
-[![Test status](https://github.com/nybrandnewschool/pytemplate/workflows/test.yml/badge.svg)](https://github.com/nybrandnewschool/pytemplate/actions) [![ShotGrid status](https://github.com/nybrandnewschool/pytemplate/workflows/shotgrid.yml/badge.svg)](https://github.com/nybrandnewschool/pytemplate/actions) [![Version](https://img.shields.io/github/v/tag/nybrandnewschool/pytemplate)](https://github.com/nybrandnewschool/pytemplate/releases)
+<div align="center">
+  
+# ❤ pytemplate
+
+**Template for creating new Python tools at Brand New School.**
+
+[![Test status](https://github.com/nybrandnewschool/pytemplate/workflows/test.yml/badge.svg)](https://github.com/nybrandnewschool/pytemplate/actions)
+[![ShotGrid status](https://github.com/nybrandnewschool/pytemplate/workflows/shotgrid.yml/badge.svg)](https://github.com/nybrandnewschool/pytemplate/actions)
+[![Version](https://img.shields.io/github/v/tag/nybrandnewschool/pytemplate)](https://github.com/nybrandnewschool/pytemplate/releases)
+
 *Developed at [Brand New School](https://brandnewschool.com).*
 
-**Template for creating new repositories at Brand New School.**
+</div>
 
 ## Features
 - Dependency management via `poetry`.
@@ -18,17 +26,18 @@
 6. Remove everything below the description in the README. You may choose to include a tool preview image, a list of features, and usage your tool in your new README.
 5. Adjust the metadata in pyproject.toml, module.yml, and `__init__.py` files including resetting the version number to `0.1.0`.
 
-# Continuous Integration
-
 ## Testing
 Tests are run automatically via github actions on push and pull requests. See the repositories actions tab or a pull request to view the test results. You can also run the tests locally using `py -m tasks test`.
 
 ## Publishing a new Version to ShotGrid
 There is another github workflow set to publish this module to ShotGrid when a new tag is pushed.
 
-1. `py -m tasks version patch` - Use the `version` task to increment the package. You can use the rule, major, minor, or patch following semantic versioning.
+1. Use the `version` task to increment the package. Use major, minor, or patch following [semantic versioning](https://semver.org).
+```
+    py -m tasks version patch
+```
 2. Add and commit the changed files.
 3. Create a tag matching the new version.
 4. Push your commit and tag to trigger the Publish to ShotGrid workflow.
 
-You may also publish to ShotGrid manually by using `cpenv publish . --to_repo=bns_shotgun`. If you haven't setup the cpenv cli tool yet, see [cpenv - Plugin and Environment Management](https://www.notion.so/brandnewschool/cpenv-Plugin-and-Environment-Management-e53792affa4f41609b37686ff4270e1a).
+You may also publish to ShotGrid manually by using `cpenv publish . --to_repo=bns_shotgun`.
