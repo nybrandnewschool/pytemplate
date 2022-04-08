@@ -4,8 +4,8 @@
 
 **Template for creating new Python tools at Brand New School.**
 
-[![Test status](https://github.com/nybrandnewschool/pytemplate/workflows/test.yml/badge.svg)](https://github.com/nybrandnewschool/pytemplate/actions)
-[![ShotGrid status](https://github.com/nybrandnewschool/pytemplate/workflows/shotgrid.yml/badge.svg)](https://github.com/nybrandnewschool/pytemplate/actions)
+[![Test status](https://github.com/nybrandnewschool/pytemplate/workflows/Test/badge.svg)](https://github.com/nybrandnewschool/pytemplate/actions)
+[![ShotGrid status](https://github.com/nybrandnewschool/pytemplate/workflows/Publish%20to%20ShotGrid/badge.svg)](https://github.com/nybrandnewschool/pytemplate/actions)
 [![Version](https://img.shields.io/github/v/tag/nybrandnewschool/pytemplate)](https://github.com/nybrandnewschool/pytemplate/releases)
 
 *Developed at [Brand New School](https://brandnewschool.com).*
