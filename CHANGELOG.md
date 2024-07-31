@@ -2,7 +2,7 @@
 
 ## Latest Changes
 
-## 0.1.1
+## 0.2.0
 ### Changed
 - Move pytemplate package into src folder.
 - Move tests into pytemplate package.
