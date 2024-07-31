@@ -2,6 +2,11 @@
 
 ## Latest Changes
 
+## 0.1.1
+### Changed
+- Move pytemplate package into src folder.
+- Move tests into pytemplate package.
+
 ## 0.1.0
 ### Added
 - Code-quality checks with black and isort.
