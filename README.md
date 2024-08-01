@@ -34,10 +34,11 @@ There is another github workflow set to publish this module to ShotGrid when a n
 
 1. Use the `version` task to increment the package. Use major, minor, or patch following [semantic versioning](https://semver.org).
 ```
-    py -m tasks version patch
+    py -m tasks version patch --commit
 ```
-2. Add and commit the changed files.
-3. Create a tag matching the new version.
-4. Push your commit and tag to trigger the Publish to ShotGrid workflow.
+2. Use the `release` task to push a new tag to github and trigger the publish workflow.
+```
+    py -m tasks release
+```
 
 You may also publish to ShotGrid manually by using `cpenv publish . --to_repo=bns_shotgun`.
